@@ -1,8 +1,23 @@
-# PDF Translation with Layout Preservation
+# PDF Translation Agent Skill
 
-Translate PDF documents between languages while **fully preserving original layout, images, tables, formulas, and typography**.
+An agent skill for translating PDF documents between 20+ languages while **fully preserving original layout, images, tables, formulas, and typography**.
+
+**Agent-compatible** — Works with any AI agent that supports the [Agent Skills specification](https://agentskills.io/specification): Claude Code, OpenClaw, Hermes, Codex, Cursor, Windsurf, and more.
 
 Uses [PDFMathTranslate](https://github.com/PDFMathTranslate/PDFMathTranslate) (`pdf2zh`) — the open-source tool accepted at **EMNLP 2025 System Demonstrations** — with Google Translate as the free default backend. No API key needed.
+
+## How Agents Use This Skill
+
+When an agent loads this skill, it can translate PDFs automatically by running `pdf2zh`:
+
+```bash
+# Agent installs and runs this automatically
+pip install -q pdf2zh && pdf2zh document.pdf -li zh -lo en -s google
+
+# Output: document-mono.pdf (translated) + document-dual.pdf (bilingual)
+```
+
+The agent handles language detection, backend selection, error recovery (model downloads, rate limits), and output verification.
 
 ## Features
 
@@ -15,19 +30,13 @@ Uses [PDFMathTranslate](https://github.com/PDFMathTranslate/PDFMathTranslate) (`
 - ✅ **GUI mode** — browser interface at localhost:7860
 - ✅ **Online PDFs** — translate documents directly from URLs
 
-## Quick Start
+## Requirements
 
 ```bash
-# Install
 pip install pdf2zh
-
-# Translate a Chinese PDF to English
-pdf2zh document.pdf -li zh -lo en -s google
-
-# Output: document-mono.pdf (English) + document-dual.pdf (bilingual)
 ```
 
-## Usage Examples
+## Usage
 
 ### Translate between any languages
 ```bash
@@ -115,9 +124,9 @@ pdf2zh input.pdf -li zh -lo en -s ollama
 | `--compatible` | Compatibility mode | `--compatible` |
 | `--ignore-cache` | Bypass translation cache | `--ignore-cache` |
 
-## Hermes Agent Skill
+## Agent Skill
 
-This repo includes a [Hermes Agent](https://hermes-agent.nousresearch.com) skill (`SKILL.md`). If you use Hermes Agent, the skill is automatically available when you mention translating a PDF.
+This repository includes an [Agent Skills specification](https://agentskills.io/specification) skill (`SKILL.md`). Any compliant agent (Claude Code, OpenClaw, Hermes, Codex, Cursor, Windsurf, etc.) can load it to translate PDFs automatically.
 
 ## Troubleshooting
 
