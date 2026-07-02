@@ -19,6 +19,22 @@ pip install -q pdf2zh && pdf2zh document.pdf -li zh -lo en -s google
 
 The agent handles language detection, backend selection, error recovery (model downloads, rate limits), and output verification.
 
+## Installation
+
+### 🤖 Via AI Agent (Recommended)
+
+Tell any AI coding agent:
+
+> "Install the PDF translation skill from `haoyiyin/pdf-translate`"
+
+Your agent will clone, install dependencies, and configure the skill automatically. Works with Pi, Claude Code, Cursor, Codex, Copilot, and any agent supporting the [Agent Skills specification](https://agentskills.io/specification).
+
+### 🛠️ Manual Installation
+
+```bash
+pip install pdf2zh
+```
+
 ## Features
 
 - ✅ **Layout preservation** — images, tables, formulas, fonts, typography all kept intact
@@ -29,12 +45,6 @@ The agent handles language detection, backend selection, error recovery (model d
 - ✅ **Batch processing** — translate entire folders at once
 - ✅ **GUI mode** — browser interface at localhost:7860
 - ✅ **Online PDFs** — translate documents directly from URLs
-
-## Requirements
-
-```bash
-pip install pdf2zh
-```
 
 ## Usage
 
@@ -126,7 +136,7 @@ pdf2zh input.pdf -li zh -lo en -s ollama
 
 ## Agent Skill
 
-This repository includes an [Agent Skills specification](https://agentskills.io/specification) skill (`SKILL.md`). Any compliant agent (Claude Code, OpenClaw, Hermes, Codex, Cursor, Windsurf, etc.) can load it to translate PDFs automatically.
+This repository is an [Agent Skill](https://agentskills.io/specification). See [Installation](#installation) above for setup. Once installed, any compliant agent (Pi, Claude Code, Cursor, Codex, Copilot, etc.) can translate PDFs automatically via the included `SKILL.md`.
 
 ## Troubleshooting
 
